@@ -38,7 +38,7 @@ public class MemberService {
 
         // 위 코드와 동일
 
-        memberRepository.findbyName(member.getName())
+        memberRepository.findByName(member.getName())
             .ifPresent(m -> {
                 throw new IllegalStateException("이미 존재하는 회원입니다");
             });
@@ -52,6 +52,6 @@ public class MemberService {
     }
 
     public  Optional<Member> findOne(Long memberId){
-        return memberRepository.findbyId(memberId);
+        return memberRepository.findById(memberId);
     }
 }

@@ -1,13 +1,21 @@
 package hello.hellospring;
 
+import hello.hellospring.repository.JdbcMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.sql.DataSource;
+
 @Configuration
 public class SpringConfig {
+
+    @Autowired
+    private DataSource dataSource;
+    // or DataSource 생성자를 통해서 dataSource를 넣어줘도 된다
 
     @Bean
     public MemberService memberService(){
@@ -16,7 +24,9 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
+
+//        return new MemoryMemberRepository();
+        return new JdbcMemberRepository(dataSource);
     }
 
 }

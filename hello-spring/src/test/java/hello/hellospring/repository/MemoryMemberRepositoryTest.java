@@ -25,7 +25,7 @@ public class MemoryMemberRepositoryTest {
 
         repository.save(member);
 
-        Member result = repository.findbyId(member.getId()).get();
+        Member result = repository.findById(member.getId()).get();
         // import org.assertj.core.api.Assertions;
         // Assertions.assertEquals(member, result);
         // System.out.println 으로 결과값을 확인할 수 도 있지만 확인하는게 어려움으로
@@ -46,7 +46,7 @@ public class MemoryMemberRepositoryTest {
         member2.setName("spring2");
         repository.save(member2);
 
-        Member result = repository.findbyName("spring1").get();
+        Member result = repository.findByName("spring1").get();
         assertThat(result).isEqualTo(member1);
 
     }
