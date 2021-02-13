@@ -27,7 +27,7 @@ class MemberServiceIntegrationTest {
     void 회원가입() {
         // given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("hello11");
 
         // when
         Long saveId = memberService.join(member);
