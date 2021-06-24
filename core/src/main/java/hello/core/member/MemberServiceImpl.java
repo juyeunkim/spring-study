@@ -1,9 +1,16 @@
 package hello.core.member;
 
+// MemberServiceImpl 입장에서 생성자를 통해 어떤 구현 객체가 들어올지 알 수 없다.
+// 오직 AppConfig(외부) 에서 결정된다
+// 의존관계에 대한 고민은 외부에 맡기고 실행에만 집중하면 된다
 public class MemberServiceImpl implements MemberService {
 
-    // DIP를 위반하고 있는 코드
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }
+
     @Override
     public void join(Member member) {
         memberRepository.save(member);
