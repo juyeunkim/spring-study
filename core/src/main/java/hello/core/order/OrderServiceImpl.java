@@ -1,27 +1,27 @@
 package hello.core.order;
 
-import hello.core.discount.DiscountPoilcy;
+import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
-    private final DiscountPoilcy discountPoilcy; // 인터페이스에만 의존
+    private final DiscountPolicy discountPolicy; // 인터페이스에만 의존
 
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPoilcy discountPoilcy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
-        this.discountPoilcy = discountPoilcy;
+        this.discountPolicy = discountPolicy;
     }
 
     @Override
-    public Order createOrder(Long memerId, String itemName, int itemPrice) {
+    public Order createOrder(Long memberId, String itemName, int itemPrice) {
         // 1. 회원 정보를 조회
-        Member member = memberRepository.findById(memerId);
+        Member member = memberRepository.findById(memberId);
         // 2. 할인정책을 조회
-        int discountPrice =  discountPoilcy.discount(member, itemPrice);
+        int discountPrice =  discountPolicy.discount(member, itemPrice);
 
         // 3. 주문 객체를 넘긴다
-        return new Order(memerId, itemName, itemPrice, discountPrice);
+        return new Order(memberId, itemName, itemPrice, discountPrice);
     }
 }

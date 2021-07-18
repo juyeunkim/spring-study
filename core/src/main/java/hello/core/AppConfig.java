@@ -1,7 +1,6 @@
 package hello.core;
 
-import hello.core.discount.DiscountPoilcy;
-import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.DiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
@@ -38,7 +37,7 @@ public class AppConfig {
     }
 
     @Bean
-    public DiscountPoilcy discountPoilcy(){
+    public DiscountPolicy discountPoilcy(){
 //        return new FixDiscountPolicy();
 //        구현하려는 대상을 바꾸려면 해당 코드만 바꾸면된다 => OrderServiceImpl의 어떠한 코드도 변경할 필요가 없다
         return new RateDiscountPolicy();
