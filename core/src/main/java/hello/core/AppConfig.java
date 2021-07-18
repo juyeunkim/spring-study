@@ -21,6 +21,9 @@ public class AppConfig {
 
     // SpringContainer 에 등록
     // 메서드 이름으로 등록한다 'memberService'
+
+    // factoryMethod를 통해서 등록하는 방법
+
     @Bean
     public MemberService memberService(){
         return new MemberServiceImpl(memberRepository());
