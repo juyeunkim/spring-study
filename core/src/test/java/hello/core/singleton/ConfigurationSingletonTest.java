@@ -32,4 +32,16 @@ public class ConfigurationSingletonTest {
         Assertions.assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
 
     }
+
+    @Test
+    void configurationDeep(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+        // 클래스명을 조회했는데 AppConfig$$XXXX
+        // 이라는 다른 이름이 추가로 붙었다
+        // 이건, 스프링이 CGLIB라는 바이트 조작 라이브러리를 사용해서 AppConfig 클래스를 상속받은 임의의 다른 클래스를 만들고
+        // 다른 클래스를 빈으로 등록한것
+    }
 }
