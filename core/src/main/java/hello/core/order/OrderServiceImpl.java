@@ -24,4 +24,9 @@ public class OrderServiceImpl implements OrderService{
         // 3. 주문 객체를 넘긴다
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
+
+    // 테스트 용도
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
+    }
 }
