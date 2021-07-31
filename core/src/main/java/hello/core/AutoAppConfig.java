@@ -6,6 +6,7 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
+        basePackages = "hello.core",
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 // @Component가 붙은 클래스를 자동으로 컨테이너 스프링에 등록
