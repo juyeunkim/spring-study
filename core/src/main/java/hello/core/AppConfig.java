@@ -39,11 +39,11 @@ public class AppConfig {
     @Bean
     public OrderService orderService(){
         System.out.println("AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(), discountPoilcy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
-    public DiscountPolicy discountPoilcy(){
+    public DiscountPolicy discountPolicy(){
 //        return new FixDiscountPolicy();
 //        구현하려는 대상을 바꾸려면 해당 코드만 바꾸면된다 => OrderServiceImpl의 어떠한 코드도 변경할 필요가 없다
         return new RateDiscountPolicy();

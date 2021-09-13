@@ -16,8 +16,8 @@ import org.springframework.context.annotation.FilterType;
 // excludeFilters 자동으로 제외할 것을 지정
 public class AutoAppConfig {
 
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
 }
