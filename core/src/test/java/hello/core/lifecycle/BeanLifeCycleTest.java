@@ -22,7 +22,6 @@ public class BeanLifeCycleTest {
         @Bean
         public NetworkClient networkClient(){
             NetworkClient networkClient = new NetworkClient();
-            //// setUrl로 값을 주입하기전에 생성자를 호출했기 때문에 NetworkClient에서 url의 값은 null로 들어간다
             networkClient.setUrl("http://hello-spring.dev");
 
             return networkClient;
