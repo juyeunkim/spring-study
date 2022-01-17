@@ -10,7 +10,11 @@ import java.util.Enumeration;
 
 /**
  * 1. 파라미터 전송 기능
+ * http://localhost:8080/request-param?username=hello&username=kim&age=20
  *
+ * request.getParameter
+ * - GET.쿼리파라미터
+ * - POST.HTML form (content-type : application/x-www-form-urlencoded
  * */
 @WebServlet(name = "requestToParamServlet", urlPatterns = "/request-param")
 public class RequestToParamServlet extends HttpServlet {
